@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Whassup, MyActivity"
+            />
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Text Ever"
+            android:id="@+id/editText" android:layout_gravity="center"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/button" android:layout_gravity="center"
+            android:onClick="sendMessage"/>
+    <TextView
+            android:layout_width="214dp"
+            android:layout_height="34dp"
+            android:text="@string/filler"
+            android:id="@+id/textView" android:layout_marginLeft="22dp"
+            android:layout_marginBottom="13dp" android:layout_gravity="left|center_vertical"/>
+    <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_gravity="left|center_vertical">
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton1" android:layout_column="0" android:src="@drawable/num1"
+                    android:layout_marginLeft="75dp" android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton2" android:layout_column="1" android:src="@drawable/num2"
+                    android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton3" android:layout_column="2" android:src="@drawable/num3"
+                    android:onClick="registerNumKey"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:orientation="vertical">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton4" android:layout_column="0" android:src="@drawable/num4"
+                    android:layout_marginLeft="75dp" android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton5" android:layout_column="1" android:src="@drawable/num5"
+                    android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton6" android:layout_column="2" android:src="@drawable/num6"
+                    android:onClick="registerNumKey"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton7" android:layout_column="0" android:src="@drawable/num7"
+                    android:layout_marginLeft="75dp" android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton8" android:layout_column="1" android:src="@drawable/num8"
+                    android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton9" android:layout_column="2" android:src="@drawable/num9"
+                    android:longClickable="false" android:labelFor="9" android:onClick="registerNumKey"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
+
