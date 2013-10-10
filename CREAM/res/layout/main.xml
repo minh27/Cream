@@ -7,28 +7,30 @@
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Whassup, MyActivity"
+            android:text="A personalized finance tracker"
             />
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Best Text Ever"
-            android:id="@+id/editText" android:layout_gravity="center"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:id="@+id/button" android:layout_gravity="center"
-            android:onClick="sendMessage"/>
     <TextView
-            android:layout_width="214dp"
-            android:layout_height="34dp"
-            android:text="@string/filler"
-            android:id="@+id/textView" android:layout_marginLeft="22dp"
-            android:layout_marginBottom="13dp" android:layout_gravity="left|center_vertical"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:id="@+id/editText" android:layout_gravity="center" android:textSize="32dp"/>
+
+    <LinearLayout
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginLeft="145dp">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:id="@+id/button" android:layout_gravity="center"
+                android:onClick="onClick"/>
+     </LinearLayout>
+
     <TableLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" android:layout_gravity="left|center_vertical">
+            android:layout_height="fill_parent" android:layout_gravity="left|center_vertical"
+            android:orientation="vertical">
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
@@ -85,6 +87,25 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton9" android:layout_column="2" android:src="@drawable/num9"
                     android:longClickable="false" android:labelFor="9" android:onClick="registerNumKey"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButtonDot" android:layout_column="0" android:layout_marginLeft="75dp"
+                    android:src="@drawable/numdot" android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton0" android:layout_column="1" android:src="@drawable/num0"
+                    android:onClick="registerNumKey"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButtonBack" android:layout_column="2" android:src="@drawable/numback"
+                    android:onClick="registerNumKey"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

@@ -1,12 +1,20 @@
 package com.example.CREAM;
 
+import android.*;
+import android.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,29 +24,56 @@ import android.widget.TextView;
  * To change this template use File | Settings | File Templates.
  */
 public class DisplayMessageActivity extends Activity {
+
+    private CommentsDataSource datasource;
+    private ListView listView;
+
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Make sure we're running on Honeycomb or higher to use ActionBar APIs
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Show the Up button in the action bar.
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         // get message from intent
         Intent intent = getIntent();
         String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
 
         // create the text view
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
+        //ListView textView = new ListView(this);
 
-        setContentView(textView);
+        datasource = new CommentsDataSource(this);
+        datasource.open();
+
+        List<Comment> values = datasource.getAllComments();
+
+        // Use the SimpleCursorAdapter to show the
+        // elements in a ListView
+        ArrayAdapter<Comment> adapter = new ArrayAdapter<Comment>(this,
+                android.R.layout.simple_list_item_1, values);
+        //setListAdapter(adapter);
+
+        /*TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(message);*/
+
+        listView = new ListView(this);
+        listView.setAdapter(adapter);
+
+        setContentView(listView);
     }
 
+    public void deleteMessage (View view) {
+        @SuppressWarnings("unchecked")
+        ArrayAdapter<Comment> adapter = (ArrayAdapter<Comment>) listView.getAdapter();
+        Comment comment = null;
+
+        if (listView.getAdapter().getCount() > 0) {
+            comment = (Comment) listView.getAdapter().getItem(0);
+            datasource.deleteComment(comment);
+            adapter.remove(comment);
+        }
+
+        adapter.notifyDataSetChanged();
+    }
     /*public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
